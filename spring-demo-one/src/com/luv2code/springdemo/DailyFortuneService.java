@@ -1,10 +1,19 @@
 package com.luv2code.springdemo;
 
+import java.util.Random;
+
 public class DailyFortuneService implements HappyFortuneService{
+
+	private String[] fortuneArray;
+	
+	public DailyFortuneService(String fortunes) {		
+		fortuneArray=fortunes.split("\\,");
+	}
 
 	@Override
 	public String getDailyFortune() {
-		return "Today is your lucky day!";
+		 int rnd = new Random().nextInt(fortuneArray.length);
+		    return fortuneArray[rnd];
 	}
 
 }
