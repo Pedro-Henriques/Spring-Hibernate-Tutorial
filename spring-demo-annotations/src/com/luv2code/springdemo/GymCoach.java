@@ -5,20 +5,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TennisCoach implements Coach {
+public class GymCoach implements Coach {
 
-	private FortuneService fortuneService;
-	
 	@Autowired
-	
-	public TennisCoach(@Qualifier("happyFortuneService")FortuneService theFortuneservice)
-	{
-		fortuneService=theFortuneservice;
-	}
+	@Qualifier("fileFortuneService")
+	private FortuneService fortuneService;
 	
 	@Override
 	public String getDailyWorkout() {
-		return "Practice your backhand volley";
+		return "Ring muscle ups boy!";
 	}
 
 	@Override
