@@ -6,23 +6,31 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class FileFortuneService implements FortuneService {
 
-	private ArrayList<String> fortunes= new ArrayList<String>();
+	private final ArrayList<String> fortunes= new ArrayList<String>();
 	private Random myRandom=new Random();
 	
-	
-	public FileFortuneService() throws Exception
-	{
+	@PostConstruct
+	private void loadFortunesFromFile()  throws Exception
+	{		
+//		Load File
 		File file = new File("src/FortuneFile.txt"); 
-		  
-		  BufferedReader br = new BufferedReader(new FileReader(file)); 
+		
+//		System.out.println("Load fortunes from file "+file.getName()); 
+		
+//		Buffer information
+		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		  
 		  String st; 
 		  String[] fortunesArray= new String[0];
+		  
+//		  We know there is only 1 line, so we get that line and split it into an ArrayList
 		  while ((st = br.readLine()) != null) 
 			  fortunesArray = st.split("\\,"); 
 		  
@@ -32,6 +40,7 @@ public class FileFortuneService implements FortuneService {
 		  }
 		  br.close();
 	}
+	
 	
 	@Override
 	public String getFortune() {

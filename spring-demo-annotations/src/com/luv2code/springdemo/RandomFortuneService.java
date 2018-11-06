@@ -2,6 +2,8 @@ package com.luv2code.springdemo;
 
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,9 +17,6 @@ public class RandomFortuneService implements FortuneService {
 			"Dilligence is the mother of good luck",
 			"The journey is the reward"
 	};
-	
-	
-	
 
 	@Override
 	public String getFortune() {
