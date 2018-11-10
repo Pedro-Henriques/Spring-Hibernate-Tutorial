@@ -23,7 +23,7 @@ public class Student {
 	private String lastName;
 	
 	@Column(name="email")
-	private String emailAddress;
+	private String email;
 	
 	public Student()
 	{
@@ -33,7 +33,7 @@ public class Student {
 	public Student(String firstName, String lastName, String emailAddress) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.emailAddress = emailAddress;
+		this.email = emailAddress;
 	}
 
 	public int getId() {
@@ -61,16 +61,16 @@ public class Student {
 	}
 
 	public String getEmailAddress() {
-		return emailAddress;
+		return email;
 	}
 
 	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+		this.email = emailAddress;
 	}
 
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailAddress="
-				+ emailAddress + "]";
+				+ email + "]";
 	}	
 }

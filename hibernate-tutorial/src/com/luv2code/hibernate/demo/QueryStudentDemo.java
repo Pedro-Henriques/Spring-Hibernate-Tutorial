@@ -50,7 +50,7 @@ public class QueryStudentDemo {
 			
 			//Query students where email like luv2code.com
 			students=session.createQuery("from Student s where"+
-					" s.emailAddress LIKE '%luv2code.com'").getResultList();
+					" s.email LIKE '%luv2code.com'").getResultList();
 			System.out.println("\nStudentes where email like luv2code.com");
 			displayStudents(students);
 			
